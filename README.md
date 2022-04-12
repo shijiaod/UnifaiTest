@@ -1,3 +1,9 @@
+<!--
+ * @Author: dengshijiao
+ * @Date: 2022-04-12 11:26:37
+ * @LastEditTime: 2022-04-12 18:07:39
+ * @Description: 
+-->
 # Unifai Test
 
 This repo contains dataset, code and trained model for Unifai's Test
@@ -41,6 +47,10 @@ python3 src/cnn.py \
     --do_train=True \
     --do_test=False \
     --do_eval=True \
+    --epochs=5 \
+    --save_best_only=True \
+    --batch_size=64 \
+    --eval_data_size=5000 \
     --eval_data_size=3000
 ```
 
@@ -56,9 +66,9 @@ or
 
 ```
 python3 src/cnn.py \
-    --do_train=True \
-    --do_test=False \
-    --train_data=data_technical_test/test_technical_test_2.csv
+    --do_train=False \
+    --do_test=True \
+    --test_data=data_technical_test/test_technical_test.csv
 ```
 
 ## Other
