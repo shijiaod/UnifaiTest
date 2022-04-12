@@ -1,0 +1,10 @@
+{
+    "column_numerique": ["shipping_date", "avalability_start_date", "avalability_end_date", "length", "width", "height", "net_weight", "raw_weight", "volume"],
+    "column_category": ["brand", "size", "accurate_gender", "article_main_category", "article_type", "country_of_origin", "country_of_manufacture", "embakment_harbor"],
+    "column_with_text": ["model_label", "color_label", "article_detail"],
+    "column_label": "correct_fedas_code",
+
+    "vectorizer_min_ngram": 1, 
+    "vectorizer_max_ngram": 1, 
+    "vectorizer_max_features": 3000
+}

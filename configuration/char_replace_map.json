@@ -1,0 +1,20 @@
+{
+    "size": {"one size": "onesize"},
+    "embakment_harbor": {
+                            "CHINE": "CN",
+                            "CHINA": "CN",
+                            "HONG KONG": "KH",
+                            "NETHERLAND": "NL",
+                            "NETHERLANDS": "NL",
+                            "INDIA": "IN",
+                            "INDE": "IN",
+                            "THAILANDE": "THAILAND",
+                            "ITALIE": "IT",
+                            "ITALY": "IT",
+                            "TURQUIE": "TURKEY",
+                            "Netherlands": "NL",
+                            "PAKISTAN": "PK",
+                            "VIETNAM": "VN",
+                            "MAURICE": "MA"
+                        }
+}
