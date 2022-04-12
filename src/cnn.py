@@ -87,6 +87,7 @@ class CNN(object):
         x_train, y_train, x_dev, y_dev = self.data_loading.train_dev_split()
         x_train, y_train = self.__reshape(x_train, y_train)
         x_dev, y_dev = self.__reshape(x_dev, y_dev)
+        logging.debug(f"loaded data succesful")
         return x_train, y_train, x_dev, y_dev
     
     def train(self, x_train, y_train, x_dev, y_dev):
