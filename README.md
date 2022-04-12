@@ -1,16 +1,13 @@
 <!--
  * @Author: dengshijiao
  * @Date: 2022-04-12 11:26:37
- * @LastEditTime: 2022-04-12 18:07:39
+ * @LastEditTime: 2022-04-12 18:14:41
  * @Description: 
 -->
 # Unifai Test
 
-This repo contains dataset, code and trained model for Unifai's Test
-
-I've split 5000 data from train dataset for evaluating model and got 80.22% for the accucary of dev dateset. 
-
-Hope it won't descend too much on test dataset :D
+This repo contains dataset and code for Unifai's Test
+Model was transformed by Google Cloud
 
 
 ## Requirments
