@@ -6,7 +6,8 @@
 -->
 # Unifai Test
 
-This repo contains dataset and code for Unifai's Test
+This repo contains dataset and code for Unifai's Test.
+
 Model was transformed by Google Cloud
 
 
