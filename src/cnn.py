@@ -30,6 +30,7 @@ flags.DEFINE_string("checkpoint_path", "cp-{epoch:04d}.ckpt", "The model name fo
 flags.DEFINE_bool("do_train", True, "if train")
 flags.DEFINE_bool("do_eval", True, "if evaluate")
 flags.DEFINE_bool("do_test", False, "if test")
+flags.DEFINE_bool("save_best_only", True, "if test")
 flags.DEFINE_integer("num_classes", 1468, "nomber of class to predict")
 flags.DEFINE_integer("epochs", 10, "max iter")
 flags.DEFINE_integer("batch_size", 64, "batch_size")
@@ -92,14 +93,15 @@ class CNN(object):
         cp_callback = tf.keras.callbacks.ModelCheckpoint(
             filepath=os.path.join(FLAGS.output_dir, FLAGS.checkpoint_path),
             save_weights_only=True,
+            monitor='val_acc', 
             verbose=1,
-            save_best_only=True)
+            save_best_only=FLAGS.save_best_only,
+            mode='max')
         self.model.fit(x_train, 
                         y_train, 
                         epochs=FLAGS.epochs, 
                         batch_size=FLAGS.batch_size, 
                         verbose=1, 
-                        validation_data=(x_dev, y_dev),
                         callbacks=[cp_callback])
         if FLAGS.do_eval:
             self.evaluate(x_dev, y_dev)
@@ -107,11 +109,13 @@ class CNN(object):
     def load_model(self):
         latest = tf.train.latest_checkpoint(FLAGS.output_dir)
         self.model.load_weights(latest).expect_partial()
+        logging.debug(f"loaded model from {latest} succesful")
         
     def evaluate(self, x_test, y_test):
         if FLAGS.do_test:
             x_test = x_test.reshape(x_test.shape[0], x_test.shape[1], 1).astype('float32')
         if y_test.shape[0] > 0:
+            logging.debug(f"shape of x_test and y_test are {x_test.shape}, {y_test.shape}")
             loss, acc = self.model.evaluate(x_test, y_test, verbose=2)
             logging.info(f"====== EVALUATION ======")
             logging.info(f"Restored model, accuracy: {acc}, loss : {loss}")
